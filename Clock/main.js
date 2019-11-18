@@ -5,15 +5,24 @@
     var doc = document.documentElement;
     var width, height;
     var ctx = canvas.getContext("2d");
-    setVARS();
+	
+	canvas.addEventListener("contextmenu", function(evt) {
+		setVARS("30pt Varela Round")
+	});
+	
+	canvas.addEventListener("click", function(evt) {
+		setVARS("30pt Fira Code")
+	});
+	
+    setVARS("30pt Fira Code");
 
-    function setVARS() {
+    function setVARS(val) {
         width = canvas.width = window.innerWidth;
         height = canvas.height = window.innerHeight;
 
-        ctx.fillStyle = "#f40af1"
-        ctx.font = "30pt arial"
-        ctx.textAlign = "center"
+        ctx.fillStyle = "#f40af1";
+        ctx.font = val;
+        ctx.textAlign = "center";
     }
     var Pad = function Pad(val) {
         return val < 10 ? "0" + val : val;

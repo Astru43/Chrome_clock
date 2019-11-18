@@ -1,0 +1,12 @@
+@font-face {
+	font-family: 'Fira Code';
+	src: url("file:////FIOUL-FILE-001.group.corp.storaenso.com/users$/gronroost/Documents/Clock/FiraCode-Regular.ttf") format ("truetype");
+}
+body {
+	margin: 0px;
+    overflow: hidden;
+}
+canvas {
+	background: #171717;
+	position: absolute;
+}
