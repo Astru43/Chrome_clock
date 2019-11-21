@@ -5,14 +5,7 @@
     var doc = document.documentElement;
     var width, height;
     var ctx = canvas.getContext("2d");
-	
-	canvas.addEventListener("contextmenu", function(evt) {
-		setVARS("30pt Varela Round")
-	});
-	
-	canvas.addEventListener("click", function(evt) {
-		setVARS("30pt Fira Code")
-	});
+	var Font;
 	
     setVARS("30pt Fira Code");
 
@@ -23,11 +16,13 @@
         ctx.fillStyle = "#f40af1";
         ctx.font = val;
         ctx.textAlign = "center";
+		Font = val
     }
+	
     var Pad = function Pad(val) {
         return val < 10 ? "0" + val : val;
     }
-
+	
     function Time$() {
         ctx.clearRect(0, 0, width, height);
         var time = new Date();
@@ -60,8 +55,18 @@
     }
 
     window.onresize = function (Event) {
-        setVARS();
+        setVARS(Font);
     }
+
+	function fira_clicked (info) {
+		if (info.menuItemId == 1 || info.menuItemId == "1") {
+			setVARS("30pt Fira Code");
+		} else if (info.menuItemId == 2 || info.menuItemId == "2") {
+			setVARS("30pt Varela Round");
+		}
+	}
+	
+	chrome.contextMenus.onClicked.addListener(fira_clicked);
 
     Time$();
 })()
